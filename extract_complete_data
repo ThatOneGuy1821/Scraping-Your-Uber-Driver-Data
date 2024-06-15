@@ -1,0 +1,158 @@
+def scrape_primary(url, browser):
+    browser.get(url)
+    time.sleep(8)
+    
+    page_source = browser.page_source
+    soup = BeautifulSoup(page_source, 'html.parser')
+    
+    ue_data = {}
+
+
+    ue_data['header'] = soup.find('p').get_text(strip=True)
+    ue_data['driver_earnings'] = soup.find('h2').get_text(strip=True)
+
+
+    trip_est_text = soup.find('div', class_='_css-lgbNty')
+    if trip_est_text:
+        trip_est = trip_est_text.get_text(strip=True)
+    else:
+        trip_est = 'No data'
+
+    pattern = r'\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?'
+    match = re.search(pattern, trip_est)
+
+    if match:
+        est_earnings = match.group()
+        ue_data['est_earnings'] = est_earnings
+    else:
+        ue_data['est_earnings'] = 'No Data'
+        
+
+    gps = soup.find('img', class_='_css-kBEvif')
+    if gps:
+        src = gps['src']
+        pattern2 = r'marker=lat%3A(-?\d+\.\d+)%24lng%3A(-?\d+\.\d+)'
+        matches = re.findall(pattern2, src)
+        ue_data['gps_coordinates'] = [{'latitude': lat, 'longitude': lng} for lat, lng in matches]
+    
+
+    time_and_distance = soup.find_all('div', class_ = '_css-iWMTTn')
+    timedistance_data = [title.text.strip() for title in time_and_distance]
+    ue_data['duration'] = timedistance_data[0]
+    ue_data['distance'] = timedistance_data[1]
+    
+
+    addresses_p = soup.find_all('p', class_='_css-eXlLWF')
+
+    if addresses_p and len(addresses_p) > 2:
+        restaurant = addresses_p[0].get_text()
+        destination = addresses_p[1].get_text()
+        points_earned = addresses_p[2].get_text()
+    else:
+        addresses_div = soup.find_all('div', class_='_css-glXBKH')
+        if addresses_div and len(addresses_div) > 2:
+            restaurant = addresses_div[0].get_text()
+            destination = addresses_div[1].get_text()
+            points_earned = addresses_p[2].get_text()
+        else:
+            restaurant = "Restaurant not found"
+            destination = "Address not found"
+            points_earned = "0 points"
+
+    ue_data['restaurant'] = restaurant
+    ue_data['destination'] = destination
+    ue_data['points_earned'] = points_earned
+    
+
+    your_earnings = soup.find('ol', class_='_css-eynBSz')
+    if your_earnings:
+        earnings_data = your_earnings.find_all('div', class_='_css-dnrXAB')
+        earnings = [title.text.strip() for title in earnings_data]
+        if len(earnings) >= 2:
+            if len(earnings) % 2 != 0:
+                earnings.append("Missing Value")
+            for i in range(0, len(earnings), 2):
+                ue_data[earnings[i]] = earnings[i + 1]   
+    
+
+    sf_categories = ['Customer price', 'Customer promotion', 'Tip', 'Your earnings']
+    sf_cat_data = soup.find_all('div', class_='_css-hlnRRs')
+
+    matched_categories = []
+
+    for item in sf_cat_data:
+        title_div = item.find('div', class_='_css-jlWlPV _css-dTqljZ')
+        if title_div:
+            title_text = title_div.get_text(strip=True)
+            if title_text in sf_categories:
+                matched_categories.append(title_text)
+
+    sf_price_data = soup.find_all(class_="_css-fMjedc _css-dTqljZ")
+    sf_prices = [title.text.strip() for title in sf_price_data if title.text.strip()]
+
+    if len(matched_categories) != len(sf_prices):
+        print("Warning: The number of categories does not match the number of fees. Check the data.")
+    else:
+        price_dict = dict(zip(matched_categories, sf_prices))
+        ue_data.update(price_dict)
+    
+
+    tip_div = soup.find('div', string='Tip')
+    customer_paid = tip_div.find_next('div').get_text(strip=True) if tip_div else 'No Data'
+
+    match2 = re.search(pattern, customer_paid)
+    total_cust_cost = match2.group() if match2 else 'No Data'
+
+    ue_data['total_cust_cost'] = total_cust_cost
+    
+
+    uber_earnings_text = soup.find('p', class_ = '_css-fMrAHl')
+    if uber_earnings_text:
+        ue_revenue = uber_earnings_text.get_text()
+        ue_data['ue_revenue'] = ue_revenue
+    else:
+        ue_data['ue_revenue'] = "no data"
+        
+
+    website = soup.find('div', class_ = "_css-hvaisy")
+    ue_data['receipt'] = website.a['href']
+    
+    return ue_data
+
+
+def scrape_exceptions(url, browser):
+    browser.get(url)
+    time.sleep(3)
+    
+    page_source = browser.page_source
+    soup = BeautifulSoup(page_source, 'html.parser')
+    
+    ue_data = {}
+    ue_data['date_time'] = soup.find('div', class_ = '_css-cFOFzj').get_text()
+    ue_data['event_type'] = soup.find('div', class_ = '_css-iOjcHy').get_text()
+    ue_data['amount'] = soup.find('div', class_ = '_css-kcdZmU').get_text()
+    ue_data['description'] = soup.find('div', class_ = '_css-dGprGw').get_text()
+    
+    return ue_data
+
+
+def scrape_data(url, browser):
+    if url.startswith('https://drivers.uber.com/earnings/trips/'):
+        return scrape_primary(url, browser)
+    elif url.startswith('https://drivers.uber.com/earnings/activities/detail?eventType=MISC&activityFeedUUID='):
+        return scrape_exceptions(url, browser)
+    else:
+        print(f"URL pattern not recognized: {url}")
+        return None
+
+
+df_urls = pd.read_excel('/Users/yourname/UberEatsWebScraping/ue_scraped_data.csv')
+
+results = []
+try:
+    for index, row in df_urls.head(1408).iterrows():
+        url = row['view_details']
+        data = scrape_data(url, browser)
+        results.append(data)
+finally:
+    browser.quit()
