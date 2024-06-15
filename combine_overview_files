@@ -1,0 +1,10 @@
+directory = '/Users/yourname/uber_webscrape/'
+csv_files = [file for file in os.listdir(directory) if file.startswith('week') and file.endswith('.csv')]
+
+dfs = []
+for csv_file in csv_files:
+    df = pd.read_csv(os.path.join(directory, csv_file))
+    dfs.append(df)
+
+combined_df = pd.concat(dfs, ignore_index=True)
+combined_df.to_csv('/Users/yourname/uber_webscrape/combined_data.csv', index=False)
