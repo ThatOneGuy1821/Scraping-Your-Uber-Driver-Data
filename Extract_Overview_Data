@@ -1,0 +1,33 @@
+search_elements = driver.find_elements(By.TAG_NAME, 'th')
+th_texts = [element.text for element in search_elements]
+
+header = [text.split(' & ') if text == 'Date & Time' else text for text in th_texts]
+header = [item for sublist in header for item in (sublist if isinstance(sublist, list) else [sublist])]
+
+df = pd.DataFrame(columns = header)
+
+row_search_elements = driver.find_elements(By.TAG_NAME, 'tr')
+tr_texts = [element.text.strip() for element in row_search_elements]
+
+individual_rows = [row.split('\n') for row in tr_texts]
+
+row_search_elements = driver.find_elements(By.TAG_NAME, 'tr')
+tr_texts = [element.text.strip() for element in row_search_elements]
+
+row_urls = []
+for element in row_search_elements:
+    try:
+        url_element = element.find_element(By.TAG_NAME, 'a')
+        url = url_element.get_attribute('href')
+    except NoSuchElementException:
+        url = None
+    row_urls.append(url)
+
+individual_rows = [row.split('\n') for row in tr_texts]
+
+for i, row in enumerate(individual_rows):
+    row.append(row_urls[i])
+    
+df = pd.DataFrame(individual_rows[1:], columns=header + ['URL'])
+
+df.to_csv(r’  Insert Your File Path and File Name Here  ‘)
