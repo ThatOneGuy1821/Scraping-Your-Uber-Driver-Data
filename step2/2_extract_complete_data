@@ -146,7 +146,9 @@ def scrape_data(url, browser):
         return None
 
 
-df_urls = pd.read_csv('/Users/yourname/UberEatsWebScraping/ue_scraped_data.csv')
+df_urls = pd.read_csv(' Insert Your Path and File Name Here ')
+# example: df_urls = pd.read_csv('/Users/yourname/UberEatsWebScraping/ue_scraped_data.csv')
+
 
 results = []
 try:
