@@ -1,4 +1,4 @@
-This is the code that I developed to scrape my Delivery History from Uber's website. I have no doubt that it can be iterated and improved upon. This was my attempt to simplify the process and automate as much as I could with my current skills.
+This is the code that I developed to scrape my Delivery History from Uber's website. I have no doubt that it can be iterated and improved upon. This was simply my attempt to automate and simplify the process as much as possible, with my current skills.
 
 ### Instructions:
 
@@ -6,6 +6,16 @@ Before we begin, you'll need to create a folder that will be used exclusively fo
 
 The example I give is a folder titled **uber_webscape** which can be found at this path:
 **‘/Users/yourname/uber_webscrape/’**
+
+You will also need to install and have a cursory knowledge of:
+- Python 3
+- Selenium
+- Chrome
+- Beautiful Soup
+- Pandas
+- Jupyter Notebooks (or some other IDE)
+
+An explanation for each is beyond the scope of this project.
 
 ## Step 1:
 
