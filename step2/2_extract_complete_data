@@ -147,14 +147,20 @@ def scrape_data(url, browser):
 
 
 df_urls = pd.read_csv(' Insert Your Path and File Name Here ')
-# example: df_urls = pd.read_csv('/Users/yourname/UberEatsWebScraping/ue_scraped_data.csv')
+### example: df_urls = pd.read_csv('/Users/yourname/UberEatsWebScraping/ue_scraped_data.csv')
 
 
 results = []
 try:
-    for index, row in df_urls.head(1408).iterrows():
+    for index, row in df_urls.iterrows():
         url = row['view_details']
         data = scrape_data(url, browser)
         results.append(data)
 finally:
     browser.quit()
+
+
+ue_dataframe = pd.DataFrame(results)
+
+ue_dataframe.to_csv(r' Insert Your Path and File Name Here ')
+### example: ue_dataframe.to_csv(r'/Users/yourname/uber_webscrape/full_scrape.csv')
