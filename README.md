@@ -27,6 +27,14 @@ Now it's time to run **2_extract_overview_data** code. Make sure to replace the 
 
 You should now have a Data Frame that looks something like this: <img width="615" alt="Screenshot 2024-05-25 at 12 53 07 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/cff87b0c-2a7f-4b9c-94fd-69e9d5431837">
 
+This Data Frame should also be saved to your computer as a CSV File, found in the folder you created earlier. Check to make sure everything looks good.
+
+Then, using the calendar widget referenced above, manually click to the next week and repeat the process above. Remember to make sure all of the data is populated.
+
+IMPORTANT: Make sure to edit the file name on Line 33 so that it iterates to the next number. In the example I provided 
+
+IMPORTANT: Before running your code again (found here: **2_extract_overview_data**), you will need to make sure all of the data is populated for the next week 
+
 
 
 Assuming everything looks good, let's save this to the folder we created earlier by running the code in **3_combine_overview_files** 
