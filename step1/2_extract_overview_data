@@ -32,3 +32,5 @@ df = pd.DataFrame(individual_rows[1:], columns=header + ['URL'])
 
 df.to_csv(r’  Insert Your Folder Path and File Name Here  ‘)
 ### example: df.to_csv(r'/Users/yourname/uber_webscrape/week1')
+
+df
