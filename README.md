@@ -13,13 +13,19 @@ Now that we have our file set up, click the Folder titled **Step 1** and run the
 
 You will need to replace the snippet of text that says _Enter the Phone Number Associated with your Account Here_ with a valid phone number. Digits only, no dashes. (See Line 20)
 
-This should prompt a verification process, which will need to be completed manually.
+Running this should prompt a verification process, which will need to be completed manually.
 
 Your screen should now look something like this: <img width="797" alt="Screenshot 2024-05-25 at 12 37 26 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/d7fda5a2-b52c-41e3-964a-0e1e12e2616e">
 
 ### Initial Scrape:
 
-Once you are logged in, using the 
+Now that you're logged in, use the calendar widget to scroll back to your first delivery. The page should list your earnings activity for the entire week.
+
+Scroll down to make sure all of the data is populated. If you see a "Load More" button at the bottom, click it and continue scrolling. Repeat as necessary until all of everything has been loaded on the page.
+
+Now it's time to run **2_extract_overview_data** code.
+
+
 
 
 
