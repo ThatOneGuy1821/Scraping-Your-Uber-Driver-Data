@@ -45,24 +45,19 @@ Once this is complete, you should have a new file titled _combined_data.csv_. It
 
 ## Step 2:
 
-At this point, if you have not exited Python, you should be ready to run the final 
+At this point, you should be ready to perform the final webscraper.
+
+Before continuing, it's important to note that this process is fully automated, but may take a significant amount of time, depending on how many deliveries you performed.
+
+To calculate the amount of time it will take, open the combined_data.csv file and check to see how many rows of data you have. Multiply this number by 8, as it will take roughly 8 seconds per row. Divide that number by 60 and you should have the amount of minutes it will take for the final webscrape to complete.
+
+If you're ready to continue, open the file marked **Step 2**
+
+If you closed the Chrome Browser at any point, rerun the login code found here: **1_login**
+
+Once logged in with Selenium, run the final code found here: **2_extract_complete_data**
+
+Make sure to edit the text in Lines 149 & 165 per example.
 
 
 
-
-
-
-
-
-
-
-
-1_login
-Rename login to 1_login
-yesterday
-
-2_extract_overview_data
-Update 2_extract_overview_data
-15 minutes ago
-
-3_combine_overview_files
