@@ -23,7 +23,12 @@ Now that you're logged in, use the calendar widget to scroll back to your first 
 
 Scroll down to make sure all of the data is populated. If you see a "Load More" button at the bottom, click it and continue scrolling. Repeat as necessary until all of everything has been loaded on the page.
 
-Now it's time to run **2_extract_overview_data** code.
+Now it's time to run **2_extract_overview_data** code. Make sure to replace the text that says _Insert Your File Path and Folder Name Here_ on Line 33. An example has been provided.
+
+You should now have a Data Frame that looks something like this: <img width="615" alt="Screenshot 2024-05-25 at 12 53 07 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/cff87b0c-2a7f-4b9c-94fd-69e9d5431837">
+
+Assuming everything looks good, let's save this to the folder we created earlier by running the code in **3_combine_overview_files** 
+
 
 
 
