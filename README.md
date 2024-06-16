@@ -31,13 +31,13 @@ This Data Frame should also be saved to your computer as a CSV File, found in th
 
 Then, using the calendar widget referenced above, manually click to the next week and repeat the process above. Remember to make sure all of the data is populated.
 
-IMPORTANT: Make sure to edit the file name on Line 33 so that it iterates to the next number. In the example I provided 
+IMPORTANT: Before running your code again, make sure to iterate the file name so that **week1** becomes **week2** and **week2** becomes **week3**, etc. (See Line 33 and the example directly beneath it)
 
-IMPORTANT: Before running your code again (found here: **2_extract_overview_data**), you will need to make sure all of the data is populated for the next week 
+Rinse and repeat until you have downloaded your entire Overview History.
 
+### Combining your CSV Files:
 
-
-Assuming everything looks good, let's save this to the folder we created earlier by running the code in **3_combine_overview_files** 
+Once you've completed this process, let's combine all of the data into one CSV File. This can easily be accomplished by running the code found here: **3_combine_overview_files** 
 
 Make sure to edit the text on Lines 1 and 13, per examples provided.
 
