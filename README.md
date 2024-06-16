@@ -32,6 +32,7 @@ You should now have a Data Frame that looks something like this:
 
 <img width="615" alt="Screenshot 2024-05-25 at 12 53 07 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/cff87b0c-2a7f-4b9c-94fd-69e9d5431837">
 
+
 This Data Frame should also be saved to your computer as a CSV File, found in the folder you created earlier. Check to make sure everything looks good.
 
 Then, using the calendar widget referenced above, manually click to the next week and repeat the process above. Remember to make sure all of the data is populated.
@@ -46,7 +47,7 @@ Once you've completed this process, let's combine all of the data into one CSV F
 
 Make sure to edit the text on Lines 1 and 13, per examples provided.
 
-Once this is complete, you should have a new file titled _combined_data.csv_. It is now time to perform your final scrape.
+This will give you a new file titled _combined_data.csv_, which we will use for the final scrape!
 
 ## Step 2:
 
