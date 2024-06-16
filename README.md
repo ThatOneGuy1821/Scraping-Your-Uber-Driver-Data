@@ -15,7 +15,10 @@ You will need to replace the snippet of text that says _Enter the Phone Number A
 
 Running this should prompt a verification process, which will need to be completed manually.
 
-Your screen should now look something like this: <img width="797" alt="Screenshot 2024-05-25 at 12 37 26 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/d7fda5a2-b52c-41e3-964a-0e1e12e2616e">
+Your screen should now look something like this: 
+
+
+<img width="797" alt="Screenshot 2024-05-25 at 12 37 26 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/d7fda5a2-b52c-41e3-964a-0e1e12e2616e">
 
 ### Initial Scrape:
 
@@ -66,4 +69,7 @@ Once the process has begun, I recommend keeping an eye on it for the first sever
 And Voila!
 You should now have a final file titled **full_data.csv**
 
-Congratulations! Your entire delivery history should be compiled in a single, easy-to-reference CSV.
+Congratulations! 
+Your entire delivery history should be compiled in a single, easy-to-reference CSV
+
+For more on me, check out: linkedin.com/in/cameronccraig
