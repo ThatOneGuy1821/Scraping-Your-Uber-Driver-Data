@@ -29,6 +29,9 @@ You should now have a Data Frame that looks something like this: <img width="615
 
 Assuming everything looks good, let's save this to the folder we created earlier by running the code in **3_combine_overview_files** 
 
+Make sure to edit the text on Lines 1 and 13, per examples provided.
+
+
 
 
 
