@@ -1,4 +1,5 @@
 ue_dataframe = pd.DataFrame(results)
 ue_dataframe
 
-ue_dataframe.to_csv(r'/Users/yourname/uber_webscrape/full_scrape.csv')
+ue_dataframe.to_csv(r' Insert Your Path and File Name Here ')
+# example: ue_dataframe.to_csv(r'/Users/yourname/uber_webscrape/full_scrape.csv')
