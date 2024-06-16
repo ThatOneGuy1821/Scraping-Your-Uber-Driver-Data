@@ -1,5 +1,5 @@
 directory = ’Insert Your File Path Here'
-# example: directory = '/Users/yourname/uber_webscrape/'
+### example: directory = '/Users/yourname/uber_webscrape/'
 
 csv_files = [file for file in os.listdir(directory) if file.startswith('week') and file.endswith('.csv')]
 
@@ -11,4 +11,4 @@ for csv_file in csv_files:
 combined_df = pd.concat(dfs, ignore_index=True)
 combined_df.to_csv('Insert File Path and File Name Here', index=False)
 
-# example: combined_df.to_csv('/Users/yourname/uber_webscrape/combined_data.csv', index=False)
+### example: combined_df.to_csv('/Users/yourname/uber_webscrape/combined_data.csv', index=False)
