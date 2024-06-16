@@ -9,7 +9,7 @@ The example I give is a folder titled **uber_webscape** which can be found at th
 
 ## Step 1:
 
-Now that we have our file set up, click the Folder titled **Step 1** and run the code **1_login**
+Now that we have our file set up, click the Folder titled **Step 1** and run the code titled **1_login**
 
 You will need to replace the snippet of text that says _Enter the Phone Number Associated with your Account Here_ with a valid phone number. Digits only, no dashes. Do not delete the quote marks ' '  (See Line 20)
 
@@ -23,9 +23,11 @@ Now that you're logged in, use the calendar widget to scroll back to your first 
 
 Scroll down to make sure all of the data is populated. If you see a "Load More" button at the bottom, click it and continue scrolling. Repeat as necessary until all of everything has been loaded on the page.
 
-Now it's time to run **2_extract_overview_data** code. Make sure to replace the text that says _Insert Your Folder Path and File Name Here_ on Line 33. An example has been provided.
+Now it's time to run the code titled **2_extract_overview_data**. Make sure to replace the text that says _Insert Your Folder Path and File Name Here_ on Line 33. An example has been provided.
 
-You should now have a Data Frame that looks something like this: <img width="615" alt="Screenshot 2024-05-25 at 12 53 07 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/cff87b0c-2a7f-4b9c-94fd-69e9d5431837">
+You should now have a Data Frame that looks something like this: 
+
+<img width="615" alt="Screenshot 2024-05-25 at 12 53 07 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/cff87b0c-2a7f-4b9c-94fd-69e9d5431837">
 
 This Data Frame should also be saved to your computer as a CSV File, found in the folder you created earlier. Check to make sure everything looks good.
 
@@ -37,7 +39,7 @@ Rinse and repeat until you have downloaded your entire Overview History.
 
 ### Combining your CSV Files:
 
-Once you've completed this process, let's combine all of the data into one CSV File. This can easily be accomplished by running the code found here: **3_combine_overview_files** 
+Once you've completed this process, let's combine all of the data into one CSV File. This can easily be accomplished by running the code titled **3_combine_overview_files** 
 
 Make sure to edit the text on Lines 1 and 13, per examples provided.
 
@@ -45,19 +47,23 @@ Once this is complete, you should have a new file titled _combined_data.csv_. It
 
 ## Step 2:
 
-At this point, you should be ready to perform the final webscraper.
+At this point, you should be ready for the final scrape.
 
-Before continuing, it's important to note that this process is fully automated, but may take a significant amount of time, depending on how many deliveries you performed.
+Before continuing, it's important to note that this process is _fully automated_, but may take a _significant amount of time_, depending on how many deliveries you performed.
 
-To calculate the amount of time it will take, open the combined_data.csv file and check to see how many rows of data you have. Multiply this number by 8, as it will take roughly 8 seconds per row. Divide that number by 60 and you should have the amount of minutes it will take for the final webscrape to complete.
+To calculate the amount of time it will take, open the combined_data.csv file and check to see how many rows of data you have. Multiply this number by 8, as it will take roughly 8 seconds per row. Divide that number by 60 and you should have an estimated amount of minutes expected to finish this process.
 
-If you're ready to continue, open the file marked **Step 2**
+If you're ready to continue, open the file titled **Step 2**.
 
-If you closed the Chrome Browser at any point, rerun the login code found here: **1_login**
+If you closed the Chrome Browser at any point, or need to return to this later, simply rerun the login code titled **1_login** when you are ready to continue.
 
-Once logged in with Selenium, run the final code found here: **2_extract_complete_data**
+You can now run the final code titled **2_extract_complete_data**.
 
-Make sure to edit the text in Lines 149 & 165 per example.
+Make sure to edit the text in Lines 149 & 165, per example.
 
+Once the process has begun, I recommend keeping an eye on it for the first several minutes to make sure there are no errors. Then feel free to walk away and check in periodically, keeping in mind how long it should take to complete.
 
+And Voila!
+You should now have a final file titled **full_data.csv**
 
+Congratulations! Your entire delivery history should be compiled in a single, easy-to-reference CSV.
