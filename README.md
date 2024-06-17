@@ -1,10 +1,10 @@
-This is the code that I developed to scrape my Delivery History from Uber's website. I'm sure it can be iterated and improved upon. This was simply my attempt to automate and simplify the process as much as possible, at my current skill level.
+This is the code I developed to scrape my Delivery History from Uber's website. I'm sure it can be iterated and improved upon. But this was my attempt to simplify & automate the process as much as possible, at my current skill level.
 
 ### Instructions:
 
 Before we begin, you'll need to create a folder that will be used exclusively for this project. We will be referencing it throughout.
 
-The example I give is a folder titled **uber_webscape** which can be found at this path:
+The example I give is a folder titled **uber_webscape** which I stored at this path:
 **‘/Users/yourname/uber_webscrape/’**
 
 You will also need to install and have a cursory knowledge of:
@@ -36,7 +36,7 @@ Now that you're logged in, use the calendar widget to scroll back to your first 
 
 Scroll down to make sure all of the data is populated. If you see a "Load More" button at the bottom, click it and continue scrolling. Repeat as necessary until everything has been loaded on the page.
 
-Now it's time to run the code titled **2_extract_overview_data**. Make sure to replace the text that says _Insert Your Folder Path and File Name Here_ on Line 33. An example has been provided.
+Now it's time to run the code titled **2_extract_overview_data**. Make sure to replace the text that says _Insert Your Folder Path and File Name Here_ on Line 33. An example has been provided on the line below.
 
 You should now have a Data Frame that looks something like this: 
 
@@ -44,13 +44,13 @@ You should now have a Data Frame that looks something like this:
 <img width="615" alt="Screenshot 2024-05-25 at 12 53 07 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/cff87b0c-2a7f-4b9c-94fd-69e9d5431837">
 
 
-This Data Frame should also be saved to your computer as a CSV File, found in the folder you created earlier. Check to make sure everything looks good.
+This Data Frame should also be saved to your computer as a CSV File titled _week1.csv_, found in the folder you created earlier. Check to make sure it's there and that everything looks good.
 
-Then, using the calendar widget referenced above, manually click to the next week and repeat the process above. Remember to make sure all of the data is populated for each page you wish to capture.
+Then, using the calendar widget referenced above, manually click to the next week and repeat the process above. 
 
-IMPORTANT: Before running your code again, make sure to iterate the file name so that **week1** becomes **week2**; **week2** becomes **week3**; etc. (See Line 33 and the example directly beneath it)
+IMPORTANT: For every page you want to capture, you'll need to adjust the name of the file on Line 33. Failure to do so will result in previous data being over-written. Using the example I provided of _week1_, simply iterate the file name so that **week1** becomes **week2**; **week2** becomes **week3**; etc. You'll also want to make sure that all of the data is populated on the page before you attempt scraping. Make sure to scroll down and click "Load More" if it exists.
 
-Rinse and repeat until you have downloaded your entire Overview History.
+Rinse and repeat until you have downloaded your entire Overview History. We will be using this data for the Primary Scrape, which will be fully automated.
 
 ### Combining your CSV Files:
 
@@ -62,7 +62,9 @@ This will give you a new file titled _combined_data.csv_ which will be used for 
 
 ## Step 2:
 
-At this point, you should be ready for the final scrape.
+Okay, now we can get to the real data!
+
+The previous scrape was primarily to capture the URL associated with each of your orders. Now, we will use the _combined_data.csv_ file to create a bot that allows us to automate the primary scrape.
 
 Before continuing, it's important to note that this process is _fully automated_, but may take a _significant amount of time_ depending on how many deliveries you performed.
 
@@ -70,7 +72,9 @@ To calculate the amount of time it will take, open the _combined_data.csv_ file 
 
 If you're ready to continue, open the file titled **Step 2**.
 
-If you closed the Chrome Browser at any point, or need to return to this later, simply rerun the login code titled **1_login** once you're to continue.
+If you closed the Chrome Browser at any point, or need to return to this later, simply rerun the login code titled **1_login** when you're ready to continue.
+
+### Primary Scrape:
 
 You can now run the final code titled **2_extract_complete_data**.
 
