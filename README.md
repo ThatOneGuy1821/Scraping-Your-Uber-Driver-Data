@@ -1,4 +1,4 @@
-This is the code that I developed to scrape my Delivery History from Uber's website. I have no doubt that it can be iterated and improved upon. This was simply my attempt to automate and simplify the process as much as possible, at my current skill level.
+This is the code that I developed to scrape my Delivery History from Uber's website. I'm sure it can be iterated and improved upon. This was simply my attempt to automate and simplify the process as much as possible, at my current skill level.
 
 ### Instructions:
 
