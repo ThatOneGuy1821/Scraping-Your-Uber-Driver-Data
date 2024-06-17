@@ -44,7 +44,7 @@ You should now have a Data Frame that looks something like this:
 <img width="615" alt="Screenshot 2024-05-25 at 12 53 07 PM" src="https://github.com/ThatOneGuy1821/Scraping-Your-Uber-Driver-Data/assets/142834049/cff87b0c-2a7f-4b9c-94fd-69e9d5431837">
 
 
-This Data Frame should also be saved to your computer as a CSV File titled _week1.csv_, found in the folder you created earlier. Check to make sure it's there and that everything looks good.
+This Data Frame should also be saved to your computer as a file titled _week1.csv_, found in the folder you created earlier. Check to make sure it's there and that everything looks good.
 
 Then, using the calendar widget referenced above, manually click to the next week and repeat the process above. 
 
