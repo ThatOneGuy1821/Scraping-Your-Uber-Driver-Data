@@ -4,7 +4,7 @@ This is the code I developed to scrape my Delivery History from Uber's website. 
 
 Before we begin, you'll need to create a folder that will be used exclusively for this project. We will be referencing it throughout.
 
-The example I give is a folder titled **uber_webscape** which I stored at this path:
+The example I give is a folder titled **uber_webscrape** which I stored at this path:
 **‘/Users/yourname/uber_webscrape/’**
 
 You will also need to install and have a cursory knowledge of:
